@@ -46,6 +46,8 @@ function CouleurPari(){
 
   for (var y = 0; y < liste_gorge_joueur.length; y++) {
     $("#joueur"+y).prepend($("<span>",{"style":"float:right;"}).text("sur "+liste_pari_joueur[y]));
+    document.querySelector("#lancer").style.display = "None";
+    document.querySelector("#jeu").style.visibility = "visible";
   }
 
 
