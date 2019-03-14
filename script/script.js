@@ -1,12 +1,20 @@
-var listeCarte=['1.png','2.png','3.png','4.png','5.png','6.png','7.png','8.png','9.png','10.png','11.png','12.png','13.png','14.png','15.png','16.png','17.png','18.png','19.png','20.png','21.png','22.png','23.png','24.png','25.png','26.png','27.png','28.png','29.png','30.png','31.png','32.png','33.png','34.png','35.png','36.png','37.png','38.png','39.png','40.png','41.png','42.png','43.png','44.png','45.png','46.png','47.png','48.png','49.png','50.png','51.png','52.png'];
+var listeCarte=[2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,41,42,43,44,45,46,47,48,49,50,51,52];
 var nbplayers;
 var liste_joueur = [];
 var liste_gorge_joueur = [];
 var liste_pari_joueur = [];
 
+function setup() {
+  shuffle(listeCarte, true); // force modifications to passed array
+  print(listeCarte);
+}
+
+
+
+
+
 function saisie(){
     var nbplayers = window.prompt("Nombre de Joueur :", "4");
-    console.log(nbplayers);
     NbJoueur(nbplayers);
 }
 
@@ -48,10 +56,51 @@ function CouleurPari(){
     $("#joueur"+y).prepend($("<span>",{"style":"float:right;"}).text("sur "+liste_pari_joueur[y]));
     document.querySelector("#lancer").style.display = "None";
     document.querySelector("#jeu").style.visibility = "visible";
+
   }
+}
 
+var h = 0;
+var pique=1;
+var carreau=1;
+var coeur=1;
+var trefle=1;
+function Tour(){
+  $("#melange").attr("src", "image/carte/"+listeCarte[h]+".png");
+  h = h+1;
 
-
+  if (listeCarte[h] > 1 && listeCarte[h] < 14) {
+    pique=pique+1;
+    document.querySelector("#pique"+pique).style.visibility = "visible";
+    document.querySelector("#pique"+(pique-1)).style.visibility = "hidden";
+    if(pique == 7){
+      document.querySelector("#tirage2").style.visibility = "hidden";
+    }
+  }
+  if (listeCarte[h] > 14 && listeCarte[h] < 27) {
+    coeur=coeur+1;
+    document.querySelector("#coeur"+coeur).style.visibility = "visible";
+    document.querySelector("#coeur"+(coeur-1)).style.visibility = "hidden";
+    if(coeur == 7){
+      document.querySelector("#tirage2").style.visibility = "hidden";
+    }
+  }
+  if (listeCarte[h] > 27 && listeCarte[h] < 40) {
+    carreau=carreau+1;
+    document.querySelector("#carreau"+carreau).style.visibility = "visible";
+    document.querySelector("#carreau"+(carreau-1)).style.visibility = "hidden";
+    if(carreau == 7){
+      document.querySelector("#tirage2").style.visibility = "hidden";
+    }
+  }
+  if (listeCarte[h] > 40 && listeCarte[h] < 53) {
+    trefle=trefle+1;
+    document.querySelector("#trefle"+trefle).style.visibility = "visible";
+    document.querySelector("#trefle"+(trefle-1)).style.visibility = "hidden";
+    if(trefle == 7){
+      document.querySelector("#tirage2").style.visibility = "hidden";
+    }
+  }
 
 
 }
