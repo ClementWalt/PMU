@@ -21,3 +21,11 @@ img{
    height:100px;
    width:50px;
 }
+body{
+
+  background-image: url("../image/fond.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  color:white;
+
+}
