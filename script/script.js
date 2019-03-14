@@ -9,10 +9,6 @@ function setup() {
   print(listeCarte);
 }
 
-
-
-
-
 function saisie(){
     var nbplayers = window.prompt("Nombre de Joueur :", "4");
     NbJoueur(nbplayers);
@@ -60,14 +56,14 @@ function CouleurPari(){
   }
 }
 
-var h = 0;
+var h = 1;
 var pique=1;
 var carreau=1;
 var coeur=1;
 var trefle=1;
 function Tour(){
-  $("#melange").attr("src", "image/carte/"+listeCarte[h]+".png");
   h = h+1;
+  $("#melange").attr("src", "image/carte/"+listeCarte[h]+".png");
 
   if (listeCarte[h] > 1 && listeCarte[h] < 14) {
     pique=pique+1;
