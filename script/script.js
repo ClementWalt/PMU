@@ -286,4 +286,29 @@ function Tour(){
   }
 
 
+  console.log(pique);
+  if(pique == 8) {
+    finish();
+  }
+  if(trefle == 8) {
+    finish();
+  }
+  if(carreau == 8) {
+    finish();
+  }
+  if(coeur == 8) {
+    finish();
+  }
+}
+
+
+var intervalid = null;
+function boucle(){
+  document.querySelector("#tirage2").style.visibility = "hidden";
+  console.log(pique);
+  intervalid = setInterval(Tour,500);
+}
+
+  function finish() {
+    clearInterval(intervalid);
 }
