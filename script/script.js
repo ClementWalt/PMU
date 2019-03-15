@@ -1,12 +1,15 @@
 var listeCarte=[2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,41,42,43,44,45,46,47,48,49,50,51,52];
+var listeMalus=[2,3,4,5,6,7,8,9,10,11,12,13,15,16,17,18,19,20,21,22,23,24,25,26,28,29,30,31,32,33,34,35,36,37,38,39,41,42,43,44,45,46,47,48,49,50,51,52];
 var nbplayers;
 var liste_joueur = [];
 var liste_gorge_joueur = [];
 var liste_pari_joueur = [];
 
 function setup() {
-  shuffle(listeCarte, true); // force modifications to passed array
+  shuffle(listeCarte, true);
   print(listeCarte);
+  noCanvas();
+  shuffle(listeMalus,true);
 }
 
 function saisie(){
@@ -61,6 +64,13 @@ var pique=1;
 var carreau=1;
 var coeur=1;
 var trefle=1;
+var cartemalus1=false;
+var cartemalus2=false;
+var cartemalus3=false;
+var cartemalus4=false;
+var cartemalus5=false;
+var cartemalus6=false;
+
 function Tour(){
   h = h+1;
   $("#melange").attr("src", "image/carte/"+listeCarte[h]+".png");
@@ -69,7 +79,7 @@ function Tour(){
     pique=pique+1;
     document.querySelector("#pique"+pique).style.visibility = "visible";
     document.querySelector("#pique"+(pique-1)).style.visibility = "hidden";
-    if(pique == 7){
+    if(pique == 8){
       document.querySelector("#tirage2").style.visibility = "hidden";
     }
   }
@@ -77,7 +87,7 @@ function Tour(){
     coeur=coeur+1;
     document.querySelector("#coeur"+coeur).style.visibility = "visible";
     document.querySelector("#coeur"+(coeur-1)).style.visibility = "hidden";
-    if(coeur == 7){
+    if(coeur == 8){
       document.querySelector("#tirage2").style.visibility = "hidden";
     }
   }
@@ -85,7 +95,7 @@ function Tour(){
     carreau=carreau+1;
     document.querySelector("#carreau"+carreau).style.visibility = "visible";
     document.querySelector("#carreau"+(carreau-1)).style.visibility = "hidden";
-    if(carreau == 7){
+    if(carreau == 8){
       document.querySelector("#tirage2").style.visibility = "hidden";
     }
   }
@@ -93,9 +103,186 @@ function Tour(){
     trefle=trefle+1;
     document.querySelector("#trefle"+trefle).style.visibility = "visible";
     document.querySelector("#trefle"+(trefle-1)).style.visibility = "hidden";
-    if(trefle == 7){
+    if(trefle == 8){
       document.querySelector("#tirage2").style.visibility = "hidden";
     }
+
+  }
+
+  if(pique > 1 && trefle > 1 && carreau > 1 && coeur > 1 && cartemalus1 == false){
+
+    $("#malus1").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus1 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
+  }
+
+  if(pique > 2 && trefle > 2 && carreau > 2 && coeur > 2 && cartemalus2 == false){
+
+    $("#malus2").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus2 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
+  }
+  if(pique > 3 && trefle > 3 && carreau > 3 && coeur > 3 && cartemalus3 == false){
+
+    $("#malus3").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus3 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
+  }
+  if(pique > 4 && trefle > 4 && carreau > 4 && coeur > 4 && cartemalus4 == false){
+
+    $("#malus4").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus4 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
+  }
+  if(pique > 5 && trefle > 5 && carreau > 5 && coeur > 5 && cartemalus5 == false){
+
+    $("#malus5").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus5 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
+  }
+  if(pique == 6 && trefle == 6 && carreau == 6 && coeur == 6 && cartemalus6 == false){
+
+    $("#malus6").attr("src", "image/carte/"+listeMalus[h]+".png");
+
+    cartemalus6 = true;
+    if (listeMalus[h] > 1 && listeMalus[h] < 14) {
+      pique=pique-1;
+      document.querySelector("#pique"+pique).style.visibility = "visible";
+      document.querySelector("#pique"+(pique+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 14 && listeMalus[h] < 27) {
+      coeur=coeur-1;
+      document.querySelector("#coeur"+coeur).style.visibility = "visible";
+      document.querySelector("#coeur"+(coeur+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 27 && listeMalus[h] < 40) {
+      carreau=carreau-1;
+      document.querySelector("#carreau"+carreau).style.visibility = "visible";
+      document.querySelector("#carreau"+(carreau+1)).style.visibility = "hidden";
+    }
+    if (listeMalus[h] > 40 && listeMalus[h] < 53) {
+      trefle=trefle-1;
+      document.querySelector("#trefle"+trefle).style.visibility = "visible";
+      document.querySelector("#trefle"+(trefle+1)).style.visibility = "hidden";
+
+    }
+
+
   }
 
 
