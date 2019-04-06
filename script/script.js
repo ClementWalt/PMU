@@ -38,7 +38,7 @@ function NbGorge(){
   }
 
   for (var t = 0; t < liste_gorge_joueur.length; t++) {
-    $("#joueur"+t).append($("<span>",{"style":"float:right;"}).text("Pari "+liste_gorge_joueur[t]+" gorgée(s) "));
+    $("#joueur"+t).append($("<span>",{"style":"float:right;","id":"nbJoueur"}).text("Pari "+liste_gorge_joueur[t]+" gorgée(s) "));
   }
 
   CouleurPari();
@@ -52,7 +52,7 @@ function CouleurPari(){
   }
 
   for (var y = 0; y < liste_gorge_joueur.length; y++) {
-    $("#joueur"+y).prepend($("<span>",{"style":"float:right;"}).text("sur "+liste_pari_joueur[y]));
+    $("#joueur"+y).prepend($("<span>",{"style":"float:right;", "id":"coulJoueur"}).text("sur "+liste_pari_joueur[y]));
     document.querySelector("#lancer").style.display = "None";
     document.querySelector("#jeu").style.visibility = "visible";
 
@@ -311,4 +311,27 @@ function boucle(){
 
   function finish() {
     clearInterval(intervalid);
+    document.querySelector("#nouvelle").style.visibility = "visible";
+    document.querySelector("#recommencer").style.visibility = "visible";
+
+}
+
+function Recommencer(){
+
+  liste_gorge_joueur = [];
+  liste_pari_joueur = [];
+  
+  for(var i=0;i<liste_joueur.length;i++){
+
+    $("#nbJoueur").remove();
+    $("#coulJoueur").remove();
+
+  }
+
+   NbGorge();
+
+
+
+
+
 }
