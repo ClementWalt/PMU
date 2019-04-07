@@ -73,6 +73,11 @@ var cartemalus6=false;
 
 function Tour(){
   h = h+1;
+
+  if(h==listeCarte.length-1){
+    h=1;
+    console.log("oui");
+  }
   $("#melange").attr("src", "image/carte/"+listeCarte[h]+".png");
 
   if (listeCarte[h] > 1 && listeCarte[h] < 14) {
@@ -303,10 +308,38 @@ function Tour(){
 
 
 var intervalid = null;
+
+function reinit(){
+
+  for(var i=1;i<=8;i++){
+    document.querySelector("#carreau"+i).style.visibility = "hidden";
+    document.querySelector("#trefle"+i).style.visibility = "hidden";
+    document.querySelector("#coeur"+i).style.visibility = "hidden";
+    document.querySelector("#pique"+i).style.visibility = "hidden";
+  }
+
+  for(var e=1;e<=6;e++){
+    $("#malus"+e).attr("src", "image/cartedos.png");
+  }
+  $("#melange").attr("src", "image/cartedos.png");
+  document.querySelector("#carreau1").style.visibility = "visible";
+  document.querySelector("#pique1").style.visibility = "visible";
+  document.querySelector("#coeur1").style.visibility = "visible";
+  document.querySelector("#trefle1").style.visibility = "visible";
+
+  cartemalus1 = false;
+  cartemalus2 = false;
+  cartemalus3 = false;
+  cartemalus4 = false; 
+  cartemalus5 = false;
+  cartemalus6 = false;
+
+}
+
 function boucle(){
   document.querySelector("#tirage2").style.visibility = "hidden";
   console.log(pique);
-  intervalid = setInterval(Tour,500);
+  intervalid = setInterval(Tour,2000);
 }
 
   function finish() {
@@ -317,7 +350,8 @@ function boucle(){
 }
 
 function Recommencer(){
-
+  document.querySelector("#nouvelle").style.visibility = "hidden";
+  document.querySelector("#recommencer").style.visibility = "hidden";
   liste_gorge_joueur = [];
   liste_pari_joueur = [];
   
@@ -328,7 +362,17 @@ function Recommencer(){
 
   }
 
-   NbGorge();
+  
+
+  NbGorge();
+
+  pique = 0;
+  trefle = 0;
+  coeur=0;
+  carreau=0;
+  reinit();
+
+  document.querySelector("#tirage2").style.visibility = "visible";
 
 
 
