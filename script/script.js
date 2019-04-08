@@ -47,12 +47,12 @@ function NbGorge(){
 function CouleurPari(){
 
   for (var r = 0; r < liste_joueur.length; r++) {
-    var pari = window.prompt("Joueur n°"+(r+1)+" Choissisez votre paris entre carreau,coeur,trèfle ou pique");
+    var pari = window.prompt(liste_joueur[r]+" Choissisez votre paris entre carreau,coeur,trèfle ou pique");
     liste_pari_joueur[r]=pari;
   }
 
   for (var y = 0; y < liste_gorge_joueur.length; y++) {
-    $("#joueur"+y).prepend($("<span>",{"style":"float:right;", "id":"coulJoueur"}).text("sur "+liste_pari_joueur[y]));
+    $("#joueur"+y).prepend($("<span>",{"style":"float:right;", "id":"coulJoueur"}).text(" "+"sur "+liste_pari_joueur[y]));
     document.querySelector("#lancer").style.display = "None";
     document.querySelector("#jeu").style.visibility = "visible";
 
